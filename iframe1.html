@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no" />
+    <title>Judicial Case Law Citations</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script src="js/modernizr.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+	<script src="js/dragdealer.js"></script>
+	<script src="js/readResponse.js"></script>
+  </head>
+  <body ng-app="app" ng-cloak ng-controller="mainCntrl">
+
+    <div class="row left" style="left:25px;z-index: 800;position:relative;">
+
+      <div class="large-9 large-9 columns" role="content">
+        <article>
+          <chord-diagram></chord-diagram>
+        </article>
+      </div>
+	  
+		<div style="position:fixed;left:200px;z-index:-1;font-size:38px;color:#3D5C6D">Citations Between Cases</div>
+		<div id="total" style="position:fixed;left:225px;top:290px;z-index:-1;font-size:78px;color:#5C7785;text-align:center;width:200px;opacity:0;"></div>
+		
+      <aside class="large-3 small-4" style="position:fixed;left:5px;">
+        &nbsp;
+<!-- 	 	<button class="orange-bar" ng-click="idp = !(idp);" id="idp" style="margin:0px;padding:0px;top:28px;left:180px;width:60px; height:18px; position:absolute;line-height:20px;font-size:16px;" title="Internally displaced persons"> -->
+<!--           IDPs on -->
+<!--         </button> -->
+        
+	  <div  id="sizefilter" title="Drag slider to filter" class="dragdealer" style="top:5px;left:0px;width:0px; height:18px; position:absolute;background-color:#5C7785;">
+	  
+<!-- 		<div class="handle orange-bar" id="sizefilterhandle" style="height:18px;line-height:20px;font-size:12px;width:40px;">10000</div> -->
+		
+<!-- 		<div style="position:fixed;left:15px;z-index:-1;font-size:11px;color:#333;margin-top:-17px;">min threshold</div>  -->
+		
+	  </div>
+<!-- 	  width:120px; -->
+ 	  <div  id="sizefilter2" title="Drag slider to filter cases" class="dragdealer" style="top:5px;left:120px;width:0px; height:18px; position:absolute;background-color:#5C7785;">
+<!-- 		<div class="handle orange-bar" id="sizefilterhandle2" style="height:18px;line-height:20px;font-size:12px;width:40px;">10000</div> -->
+		
+<!-- 		<div style="position:fixed;left:140px;z-index:-1;font-size:11px;color:#333;margin-top:-17px;">max threshold</div> -->
+		
+	  </div>
+        <button class="orange-bar right" ng-click="filters = {}; hasFilters = false;" style="margin:0px;padding:0px;top:28px;left:120px;width:55px; height:18px; position:absolute;line-height:20px;font-size:16px;">
+          clear
+        </button>
+        <div class="panel">
+          <div ng-if="hasFilters === false">
+            Click a case
+          </div>
+          <ul class="side-nav" style="margin-top:-7px;">
+            <li ng-repeat="filter in filters">
+              <input ng-model="filter.hide" id="{{ filter.name }}" type="checkbox">
+              <label for="{{ filter.name }}">{{ filter.name }}</label>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <fieldset id="tooltip" class="row secondary">
+      
+        <div class="large-12 small-12 columns">
+          Case #: {{ tooltip.sdata.data[0].importer2 }} ({{ tooltip.sdata.data[0].soc2 }})
+          <h6>is cited by: </h6>
+          Case # {{ tooltip.sdata.data[0].importer1 }} ({{ tooltip.sdata.data[0].soc1 }})
+        </div>
+
+      </fieldset>
+	 
+    <script src="js/d3.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/mainController.js"></script>
+    <script src="js/matrixFactory.js"></script>
+    <script src="js/chordDirective.js"></script>
+    <script>
+      $(document).foundation();
+      
+      document.addEventListener("keydown", parent.keyPresses, false);
+    </script>
+  </body>
+</html>

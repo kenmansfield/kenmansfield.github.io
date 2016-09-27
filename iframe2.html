@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no" />
+    <title>Judicial Case Law Citations</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script src="js/modernizr.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+	<script src="js/dragdealer.js"></script>
+  </head>
+
+
+	<form id="authForm" style="color:#092331;font-size:18px;">
+	   User Name & Password:&nbsp
+	  <input type="text" name="username" value="username"style="height:36px;width:150px;font-size:14px;">
+	  <input type="text" name="password" value="password"style="height:36px;width:150px;font-size:14px;margin-top:-10px;"><br>
+	</form> 
+	
+	<form id="inputForm" style="color:#092331;font-size:18px;margin-top:-25px;">
+	   Case Number & Year:&nbsp&nbsp&nbsp&nbsp&nbsp
+	  <input type="number" name="theCaseNum" value="173" style="height:36px;width:150px;font-size:14px;">
+	  <input type="number" name="theCaseYear" value="2013" style="height:36px;width:150px;font-size:14px;margin-top:-10px;"><br>
+	</form>
+	
+     
+   	<button class="orange-bar" onclick="onSubmit()" style="height:60px;width:180px;font-size:16px;margin-top:-25px;" >Search</button>
+   	<span style="color:#3D5C6D" id="errorMessage"></span>
+   	<br>
+   	
+  	<button class="orange-bar" onclick="playTimeLine()" id="playButton" style="height:60px;width:180px;font-size:16px;margin-top:0px;visibility:hidden;" >Stop Timeline</button>
+
+
+
+	
+<script>
+document.addEventListener("keydown", parent.keyPresses, false);
+function onSubmit()
+{
+	parent.onSubmit();
+	//dataSubmitted();
+}
+
+function playTimeLine()
+{
+	parent.playTimeLine();
+}
+
+</script>	
+	
+</html>
