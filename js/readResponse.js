@@ -2,7 +2,7 @@
  * Paletton base color: #183747
  */
 
-var url = "http://app.knomos.ca/api/cases/bcca/2013/173/citations";
+var url = "http://kn-bcb.herokuapp.com/api/cases/bcca/2013/173/citations";
 var index = 0;
 
 // The data we parse from the JSON responses.
@@ -51,7 +51,7 @@ function dataSubmitted()
 	caseNumber = form.theCaseNum.value;
 	caseYear =  form.theCaseYear.value;
 	
-	url = "http://app.knomos.ca/api/cases/bcca/" + caseYear + 
+	url = "http://kn-bcb.herokuapp.com/api/cases/bcca/" + caseYear + 
 	"/" + caseNumber + "/citations";
 	
 	var caseName = caseYear + "-" + caseNumber;
@@ -147,7 +147,7 @@ function referenceLoad(response)
 	//caseIndices.push(caseArray[0][index].case_year + "-" + caseArray[0][index].case_num);
 	//url = "http://app.knomos.ca/api/cases/bcca/" + caseArray[0][index].case_year + "/" + caseArray[0][index].case_num + "/citations";
 	
-	url = "http://app.knomos.ca/api/cases/bcca/" + caseToQuery.year + "/" + caseToQuery.case_num + "/citations";
+	url = "http://kn-bcb.herokuapp.com/api/cases/bcca/" + caseToQuery.year + "/" + caseToQuery.case_num + "/citations";
 	
 	index++;
 	newRequest();
